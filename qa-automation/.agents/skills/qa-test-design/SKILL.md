@@ -1,6 +1,6 @@
 ---
 name: qa-test-design
-description: Analyze separate frontend and backend/API repositories and requirements; produce an optimized risk-based QA plan and a single traceable manual/automation test-case inventory with QA approval.
+description: Analyze separate frontend and backend/API repositories and requirements; produce an optimized risk-based QA plan and a single traceable manual/automation test-case inventory with QA approval. Use when the user asks for a test plan, test cases, test scenarios, what to test, risk/priority of tests, regression scope, or the impact of a code change on testing.
 ---
 # QA Test Design — central orchestration skill
 
@@ -35,4 +35,7 @@ Read `../../../standards/classification-risk.md`, `../../../standards/test-desig
 - Do not claim numerical coverage percentage without a defined denominator. Do not claim any run happened without real evidence.
 
 ## Output contract
-`Feature inventory + evidence map + optimized test-case matrix + risk rationale + traceability + excluded duplicates + gaps + approval request`. Use `../../../templates/test-case-matrix.csv` for tabular CSV; use `../../../templates/test-plan.md` for human review. Mark `DRAFT`, `NEEDS_CONFIRMATION`, `NOT_INSPECTED` honestly.
+`Feature inventory + evidence map + optimized test-case matrix + risk rationale + traceability + excluded duplicates + gaps + approval request`. Use `../../../templates/test-case-matrix.csv` for tabular CSV; use `../../../templates/test-plan.md` for human review. When a CSV matrix is written, run `python3 scripts/validate_case_matrix.py <csv>` from the QA repo root and report the result; if it cannot run, say `UNVERIFIED`. Mark `DRAFT`, `NEEDS_CONFIRMATION`, `NOT_INSPECTED` honestly.
+
+## Language
+Reply in the user's language; keep case IDs, statuses, tags and template field names in English.

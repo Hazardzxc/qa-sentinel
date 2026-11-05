@@ -43,6 +43,19 @@ cp -R qa-sentinel/qa-automation/. path/to/your-qa-repo/
 mkdir -p .claude && ln -s ../.agents/skills .claude/skills
 ```
 
+## Slash commands (Claude Code plugin)
+
+| Command | What it does |
+|---|---|
+| `/qa-init` | Copy standards, templates and the `docs/` scaffold into your QA repo (never overwrites) |
+| `/qa-plan <feature>` | Risk-based test plan and case matrix, stops for QA approval |
+| `/qa-manual <case IDs> [env]` | Manual cases, run sheet and exploratory charter |
+| `/qa-automate <case IDs> <env>` | Playwright tests for approved IDs, production denied |
+| `/qa-impact FE a..b API c..d` | Smallest defensible regression set for a change |
+| `/qa-release <build>` | Release-readiness recommendation, never self-signoff |
+
+Other AI tools: use the same prompts from `qa-automation/examples/workflow-prompts.md`.
+
 ## Use with other AI tools
 
 The skills follow the open Agent Skills format (`SKILL.md` + frontmatter), and `qa-automation/AGENTS.md` points any agent to the right starting skill.
@@ -81,6 +94,12 @@ The central test case inventory is the **single source of truth**. A case may be
 ## What remains to implement for a running Playwright framework
 
 This skill set is **not** an installable Playwright application. Add project-specific `package.json`, Playwright config, API clients, POM, test code, secrets, endpoint allowlists, production-safe case ID allowlists, an actual CI/CD integration and safe infrastructure after approval. No sample tag can authorize access to production. QA/UAT are optional environments; do not assume they exist.
+
+## v4.1
+
+- Slash commands for Claude Code (`/qa-init`, `/qa-plan`, `/qa-manual`, `/qa-automate`, `/qa-impact`, `/qa-release`).
+- `scripts/validate_test_tags.py`: checks Playwright titles for one case ID, one layer, one priority and a suite tag; skills now run both validators.
+- Skill descriptions say when to use each skill; replies follow the user's language.
 
 ## Version changes from v3
 

@@ -1,6 +1,6 @@
 ---
 name: qa-release-assessment
-description: Combine verified manual and Playwright results against a shared traceability matrix to assess release readiness, untested risks, defect blockers and QA sign-off evidence without inventing results.
+description: Combine verified manual and Playwright results against a shared traceability matrix to assess release readiness, untested risks, defect blockers and QA sign-off evidence without inventing results. Use when the user asks if a build or feature is ready to release, for a test summary or QA sign-off report, or to combine manual and automated results.
 ---
 # QA Release Assessment Skill
 
@@ -21,3 +21,6 @@ Produce `../../../templates/release-summary.md`: release metadata, scope, execut
 
 ## Repository rule
 Read frontend/backend source revisions as evidence only; release reports and exported templates belong in the independent QA automation repo or authorized test-management system. No FE/BE writes.
+
+## Language
+Reply in the user's language; keep case IDs, statuses, tags and template field names in English.

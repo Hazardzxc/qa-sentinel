@@ -1,6 +1,6 @@
 ---
 name: qa-manual-testing
-description: Plan and conduct evidence-driven manual, exploratory, sanity, UAT and regression testing using shared QA case IDs, test-run records and reproducible bug reports.
+description: Plan and conduct evidence-driven manual, exploratory, sanity, UAT and regression testing using shared QA case IDs, test-run records and reproducible bug reports. Use when the user asks for manual test steps, a test run sheet, exploratory testing, UAT, retesting, or a bug report.
 ---
 # QA Manual Testing Skill
 
@@ -32,3 +32,6 @@ For manual case authoring, exploratory charters, test runs, UI/UX and visual ins
 
 ## Stop conditions
 If acceptance criteria are missing, mark expected behavior `NEEDS_CONFIRMATION`; do not create a false PASS. If a production action could mutate real state, notify stakeholders and stop; never treat a tag or human statement alone as a sufficient safety control.
+
+## Language
+Reply in the user's language; keep case IDs, statuses, tags and template field names in English.
