@@ -116,6 +116,10 @@ The central test case inventory is the **single source of truth**. A case may be
 - Centralizes shared standards to prevent Manual and Automation policies from drifting.
 - Adds offline repository-boundary and case-matrix validators (helpers only, not a production safety guarantee).
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 [MIT](LICENSE)
