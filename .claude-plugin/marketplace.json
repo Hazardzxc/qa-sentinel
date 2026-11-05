@@ -1,0 +1,31 @@
+{
+  "name": "qa-sentinel",
+  "owner": {
+    "name": "Hazardzxc"
+  },
+  "metadata": {
+    "description": "Risk-based QA agent skills: test design, manual testing, Playwright automation and release assessment",
+    "version": "4.0.0"
+  },
+  "plugins": [
+    {
+      "name": "qa-sentinel",
+      "description": "Agent skills for risk-based QA across separate frontend, backend and QA repos: test design, manual testing, Playwright automation and release assessment, with approval gates and environment safety built in.",
+      "version": "4.0.0",
+      "source": "./",
+      "strict": false,
+      "author": { "name": "Hazardzxc" },
+      "homepage": "https://github.com/Hazardzxc/qa-sentinel",
+      "repository": "https://github.com/Hazardzxc/qa-sentinel",
+      "license": "MIT",
+      "category": "testing",
+      "keywords": ["qa", "testing", "playwright", "test-automation", "manual-testing", "release-management"],
+      "skills": [
+        "./qa-automation/.agents/skills/qa-test-design",
+        "./qa-automation/.agents/skills/qa-manual-testing",
+        "./qa-automation/.agents/skills/qa-playwright-automation",
+        "./qa-automation/.agents/skills/qa-release-assessment"
+      ]
+    }
+  ]
+}

@@ -22,6 +22,16 @@ qa-automation/                       # COPY CONTENTS into an independent QA Git 
 
 ## Quick start
 
+**Claude Code plugin** (installs the four skills):
+
+```
+/plugin install qa-sentinel --marketplace Hazardzxc/qa-sentinel
+```
+
+On older Claude Code versions: `/plugin marketplace add Hazardzxc/qa-sentinel`, then `/plugin install qa-sentinel@qa-sentinel`.
+
+The plugin gives you the skills only. To get the templates, standards and `docs/` scaffold in your QA repo, also copy the files:
+
 ```bash
 git clone https://github.com/Hazardzxc/qa-sentinel.git
 cp -R qa-sentinel/qa-automation/. path/to/your-qa-repo/
