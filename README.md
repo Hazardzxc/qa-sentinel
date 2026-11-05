@@ -43,6 +43,17 @@ cp -R qa-sentinel/qa-automation/. path/to/your-qa-repo/
 mkdir -p .claude && ln -s ../.agents/skills .claude/skills
 ```
 
+## Use with other AI tools
+
+The skills follow the open Agent Skills format (`SKILL.md` + frontmatter), and `qa-automation/AGENTS.md` points any agent to the right starting skill.
+
+| Tool | How |
+|---|---|
+| Claude Code | Plugin above, or the `.claude/skills` symlink |
+| OpenAI Codex | Reads `.agents/skills/` and `AGENTS.md` directly after copying the files |
+| Cursor, GitHub Copilot, Gemini CLI | Read `AGENTS.md`; link `.agents/skills` into the tool's own skills folder if it supports skills |
+| Any other AI | Ask it to read `.agents/skills/qa-test-design/SKILL.md` first |
+
 ## Install in your actual QA automation repository
 
 1. Create or choose a **separate, independent Git repository** for the product/domain's QA assets (not a directory inside the FE or backend repo). Its Git root is `qa-automation`.
