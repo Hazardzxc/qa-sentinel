@@ -8,3 +8,5 @@ This repository uses the QA skills in `.agents/skills/`. Read the relevant `SKIL
 4. `qa-release-assessment`: combine verified results into a release-readiness report.
 
 Core rules: frontend and backend repositories are read-only; write only in this QA repository. Never invent test results, evidence or defects. Never run against production without explicit approval. Shared policies live in `standards/`, templates in `templates/`. Reply in the user's language; keep case IDs, statuses and tags in English.
+
+If the `ponytail` skill is available, use it when writing automation code only; the rules above always take precedence.

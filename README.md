@@ -69,6 +69,20 @@ The skills follow the open Agent Skills format (`SKILL.md` + frontmatter), and `
 | Cursor, GitHub Copilot, Gemini CLI | Read `AGENTS.md`; link `.agents/skills` into the tool's own skills folder if it supports skills |
 | Any other AI | Ask it to read `.agents/skills/qa-test-design/SKILL.md` first |
 
+## Works well with ponytail
+
+[ponytail](https://github.com/DietrichGebert/ponytail) (MIT, separate project) keeps generated code small: no unrequested abstractions, reuse before adding. QA Sentinel does not bundle it; install it alongside if you want leaner Playwright code:
+
+```
+/plugin marketplace add DietrichGebert/ponytail
+/plugin install ponytail@ponytail
+```
+
+- Used only for automation code (specs, fixtures, API clients, CI), not for test design, manual testing or release reports.
+- QA Sentinel's safety, approval, boundary and tagging rules always win over ponytail.
+- Review generated specs with `/ponytail-review` **and** `qa-playwright-automation/references/review-checklist.md`.
+- ponytail has its own hooks, a local task ledger and an optional webhook; check its settings. QA Sentinel sends nothing anywhere.
+
 ## Install in your actual QA automation repository
 
 1. Create or choose a **separate, independent Git repository** for the product/domain's QA assets (not a directory inside the FE or backend repo). Its Git root is `qa-automation`.
@@ -96,6 +110,10 @@ The central test case inventory is the **single source of truth**. A case may be
 ## What remains to implement for a running Playwright framework
 
 `qa-automation/templates/playwright/` is a starter: copy it to your QA repo root, copy `config/environments.example.json` to `config/environments.json` with your real DEV/QA URLs, then `npm i` and `npm run check`. It refuses an empty, unknown or production `TEST_ENV` and blocks browser requests to origins outside the allowlist. Still add project-specific `package.json`, Playwright config, API clients, POM, test code, secrets, endpoint allowlists, production-safe case ID allowlists, an actual CI/CD integration and safe infrastructure after approval. No sample tag can authorize access to production. QA/UAT are optional environments; do not assume they exist.
+
+## v4.3
+
+- Optional ponytail integration for automation code (not bundled, not forked); QA Sentinel rules take precedence.
 
 ## v4.2
 

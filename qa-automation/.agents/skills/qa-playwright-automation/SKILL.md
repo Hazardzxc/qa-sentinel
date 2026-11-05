@@ -28,6 +28,9 @@ Start with `qa-test-design` to inspect Frontend + Backend/API **read-only**, ide
 6. **REPORT**: write reports under QA repo with actual status, timings, report links/artifacts, deployed FE/BE refs and coverage gaps. Never claim an unexecuted test passed.
 7. **MAINTAIN**: inspect FE+API diffs; propose only affected case IDs plus mandatory smoke and any transitive risks. Changes to expected results, deletion, new automation IDs and scope require QA approval. Synchronize status in shared matrix without duplicating IDs.
 
+## Optional: ponytail
+If the `ponytail` skill is available, follow it while writing code (specs, fixtures, API clients, CI): the smallest complete change, reuse existing helpers, add a Page Object or fixture only once 2+ specs share it. This skill's safety, approval, repository-boundary and tagging rules always take precedence over ponytail. Review generated code with `/ponytail-review` **and** `references/review-checklist.md`; ponytail does not know case IDs, tags or environment policy.
+
 ## CI/CD guidance
 QA automation repo **owns** the runner, policies and reports. FE/API deploy pipelines or an orchestrator may send authenticated deployment metadata (target env, deployed frontend/backend SHA, deployment ID); do not write FE/API pipeline configs under this skill. Nightly regression can run against authorized DEV/QA; PR check can validate without running deployed tests. For PROD, technical enforcement is mandatory and not supplied by this Skill alone.
 
