@@ -1,4 +1,4 @@
-# QA Engineering Skill Set v4.0
+# QA Sentinel: QA Engineering Skill Set
 
 A practical, repository-aware QA workflow for teams with **separate frontend, backend/API, and QA automation Git repositories**. Includes four coordinated agent skills, shared policies, manual testing workflow, Playwright Web/API/E2E standards, review gates, and templates.
 
@@ -7,6 +7,8 @@ A practical, repository-aware QA workflow for teams with **separate frontend, ba
 ## Contents
 
 ```
+.claude-plugin/marketplace.json      # Claude Code plugin manifest
+commands/                            # /qa-* slash commands
 qa-automation/                       # COPY CONTENTS into an independent QA Git repo
   .agents/skills/
     qa-test-design/SKILL.md           # central analysis, risk and case inventory
@@ -14,7 +16,7 @@ qa-automation/                       # COPY CONTENTS into an independent QA Git 
     qa-playwright-automation/SKILL.md # reviewed code generation and maintenance
     qa-release-assessment/SKILL.md   # consolidated manual + automation reporting
   standards/                         # single authoritative cross-skill policy
-  templates/                         # Markdown + CSV templates
+  templates/                         # Markdown + CSV templates, Playwright starter, PR check workflow
   examples/                          # explicitly fictitious examples and prompts
   scripts/                           # small optional offline validators
   docs/                               # destination for case inventory, runs, reports
@@ -93,7 +95,13 @@ The central test case inventory is the **single source of truth**. A case may be
 
 ## What remains to implement for a running Playwright framework
 
-This skill set is **not** an installable Playwright application. Add project-specific `package.json`, Playwright config, API clients, POM, test code, secrets, endpoint allowlists, production-safe case ID allowlists, an actual CI/CD integration and safe infrastructure after approval. No sample tag can authorize access to production. QA/UAT are optional environments; do not assume they exist.
+`qa-automation/templates/playwright/` is a starter: copy it to your QA repo root, copy `config/environments.example.json` to `config/environments.json` with your real DEV/QA URLs, then `npm i` and `npm run check`. It refuses an empty, unknown or production `TEST_ENV` and blocks browser requests to origins outside the allowlist. Still add project-specific `package.json`, Playwright config, API clients, POM, test code, secrets, endpoint allowlists, production-safe case ID allowlists, an actual CI/CD integration and safe infrastructure after approval. No sample tag can authorize access to production. QA/UAT are optional environments; do not assume they exist.
+
+## v4.2
+
+- Playwright starter kit (`templates/playwright/`): fail-closed environment allowlist, production denied, origin guard fixture with a self-check test, `npm run check`.
+- PR check workflow template (`templates/github/qa-checks.yml`) and CI for this repo.
+- Fixed the naming example in `playwright-standards.md` to match the case ID format.
 
 ## v4.1
 

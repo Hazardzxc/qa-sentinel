@@ -5,13 +5,13 @@
   },
   "metadata": {
     "description": "Risk-based QA agent skills: test design, manual testing, Playwright automation and release assessment",
-    "version": "4.1.0"
+    "version": "4.2.0"
   },
   "plugins": [
     {
       "name": "qa-sentinel",
       "description": "Agent skills for risk-based QA across separate frontend, backend and QA repos: test design, manual testing, Playwright automation and release assessment, with approval gates and environment safety built in.",
-      "version": "4.1.0",
+      "version": "4.2.0",
       "source": "./",
       "strict": false,
       "author": {

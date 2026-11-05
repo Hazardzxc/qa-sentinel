@@ -1,0 +1,10 @@
+{
+  "dev": {
+    "baseURL": "https://dev.example.com",
+    "allowedOrigins": ["https://dev.example.com", "https://api.dev.example.com"]
+  },
+  "qa": {
+    "baseURL": "https://qa.example.com",
+    "allowedOrigins": ["https://qa.example.com", "https://api.qa.example.com"]
+  }
+}

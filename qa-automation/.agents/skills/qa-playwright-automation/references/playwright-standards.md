@@ -27,7 +27,7 @@ qa-automation/  # independent Git repo; never nested in FE or backend
 - Review flaky tests and distinguish product defects from environment/test-data failures.
 
 ## Naming example
-`TC-012 | Create form with valid required fields @functional @web @regression`
+`TC-FORM-012 create form with valid required fields @web @functional @regression @p2`
 
 ## Commands (illustrative; adapt to actual package scripts)
 `TEST_ENV=dev npx playwright test --grep @smoke`

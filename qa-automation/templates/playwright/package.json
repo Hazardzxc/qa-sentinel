@@ -1,0 +1,14 @@
+{
+  "name": "qa-automation",
+  "private": true,
+  "scripts": {
+    "check": "tsc --noEmit && TEST_ENV=dev playwright test --list && python3 scripts/validate_test_tags.py tests",
+    "test:smoke:dev": "TEST_ENV=dev playwright test --grep @smoke",
+    "test:regression:qa": "TEST_ENV=qa playwright test --grep @regression"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3"
+  }
+}

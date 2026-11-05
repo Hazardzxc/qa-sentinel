@@ -1,0 +1,20 @@
+name: Validate skill set
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Skill set and example matrix
+        working-directory: qa-automation
+        run: |
+          python3 scripts/validate_skill_set.py
+          python3 scripts/validate_case_matrix.py examples/illustrative-case-matrix.csv
+      - name: Tag validator accepts good specs and rejects bad ones
+        run: |
+          python3 qa-automation/scripts/validate_test_tags.py .github/test-fixtures/good
+          python3 qa-automation/scripts/validate_test_tags.py qa-automation/templates/playwright/tests
+          if python3 qa-automation/scripts/validate_test_tags.py .github/test-fixtures/bad; then echo "bad fixture passed"; exit 1; fi
